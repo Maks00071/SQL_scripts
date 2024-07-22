@@ -5,12 +5,13 @@
 DROP FUNCTION IF EXISTS <schema_name>.f_create_external_table_uni(text, text, text, text, text, text);
 
 CREATE OR REPLACE FUNCTION <schema_name>.f_create_external_table_uni(
-        , p_schema_name text
-        , p_table_name  text
-        , p_hive_schema text
-        , p_hive_table  text
-        , p_wf_load_id  text
-        , p_wf_id       text
+        , p_schema_name   text
+        , p_table_name    text
+        , p_hive_schema   text
+        , p_hive_table    text
+        , pxf_server_host text
+        , p_wf_load_id    text
+        , p_wf_id         text
     )
     RETURNS int4
     LANGUAGE plpgsql
@@ -55,7 +56,7 @@ AS $func$
 
         -- создаем внешнюю таблицу
         v_sql := 'CREATE EXTERNAL TABLE ' ||p_schema_name||'.'||p_table_name||'_pxf ('||attr_string||')
-                    LOCATION (''pxf://'||p_hive_schema||'.'||p_hive_table|| '?profile=hive&server='||<pxf_server_host>||'
+                    LOCATION (''pxf://'||p_hive_schema||'.'||p_hive_table|| '?profile=hive&server='||pxf_server_host||'
                     ) ON ALL
                     FORMAT ''CUSTOM'' ( FORMATTER=''pxfwritable_import'' )
                     ENCODING ''UTF8'';';
