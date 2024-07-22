@@ -19,7 +19,7 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/Functions/f_create_external_table_uni.sql" connection-id="virtual-postgres-connection" session-id="" current-schema="" />
+    <mapping file-url="file://$PROJECT_DIR$/Functions/f_create_external_table_uni.sql" connection-id="virtual-postgres-connection" session-id="MAIN" current-schema="" />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
     <recently-used-interfaces />
