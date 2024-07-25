@@ -19,7 +19,7 @@ from
 where
   pc.relkind IN ('r', 's')
   and pc.relstorage IN ('h', 'a', 'c')
-  and relname like 'table_name'
-  and pn.nspname = 'schema_name'
+  and relname like 'table_name'  -- название таблицы
+  and pn.nspname = 'schema_name' -- название схемы
 order by
   partitionrangestart desc;
